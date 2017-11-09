@@ -1,0 +1,9 @@
+{
+    "id": "deploy",
+    "password": "7refreQuC2k!",
+    "ssh_keys": [
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0020qZKoryk1Z1pdFH+aRlcTBYVVgHpi4cp9jurZ9dxz3dQ57nxmOET0VRVYUqEt7ZR/+dY+c+bMIjb5leZhpb/kLP5TIeGjj36o8GBY6g915WxMHgHLA4XnICRlQWONKCVvoVWhQT1zT+qeWyt3WExf/0NzllyKg4Ucbr96R8+QKYYi/QuHsOUj0KDfCRiGgt7RV/vood5g28pM9CMzTt4OLSy8dECgLCKQ/clEMHE4hLR48vlRdFV4NIEoR5nL1bIo3Ig/SY8Tu6s4EM0EVGnaLmYOe6t208d/Ew5AzfjevR1l8Ci+DKi30qi/WMwSPQ8zzlMXB681fhn4VobK7 omozgovoi@voiplatinum.com"
+    ],
+    "groups": ["www-data", "sudo", "rvm", "sysadmin"],
+    "shell": "\/bin\/bash"
+  }

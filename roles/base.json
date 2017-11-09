@@ -1,0 +1,74 @@
+{
+    "name": "base",
+    "description": "Base role",
+    "json_class": "Chef::Role",
+    "default_attributes": {
+      "authorization": {
+        "sudo": {
+          "groups": [
+            "sysadmin"
+          ],
+          "users": [
+            "deploy"
+          ],
+          "passwordless": "false"
+        }
+      },
+      "users": [
+        "deploy"
+      ],
+      "nodejs": {
+        "version": "0.12.18",
+         "install_method": "package"
+      },
+      "rvm": {
+        "user_installs": [
+          {
+            "user": "deploy",
+            "default_ruby": "2.3.0",
+            "rubies": [
+              "2.3.0"
+            ]
+          }
+
+        ],
+        "rvmrc": {
+            "rvm_autolibs_flag": "disabled"
+            }
+      },
+      "monit": {
+        "mail_alerts": false,
+        "web_interface": {
+          "enable": true,
+          "port": 2812,
+          "address": false,
+          "allow": [
+            "admin:2rG8b99N"
+          ]
+        }
+      },
+      "nginx": {
+        "version": "1.11.10",
+        "default_site_enabled": false,
+        "source": {
+          "modules": [
+            "nginx::http_gzip_static_module",
+            "nginx::http_ssl_module",
+            "nginx::http_v2_module"
+          ],
+        "checksum": "778b3cabb07633f754cd9dee32fc8e22582bce22bfa407be76a806abd935533d"
+        }
+      }
+
+    },
+    "run_list": [
+      "recipe[chef-solo-search]",
+      "recipe[users::sysadmins]",
+      "recipe[nginx::source]",
+      "recipe[rvm::user]",
+      "recipe[nodejs]",
+      "recipe[apt-packages]",
+      "recipe[monit]",
+      "recipe[ncdu]"
+    ]
+  }
